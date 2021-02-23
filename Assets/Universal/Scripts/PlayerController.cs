@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour
     private AudioSource playerAudio;
 
 
+
     void Start()
     {
         playerRb = GetComponent<Rigidbody>();
@@ -36,6 +37,8 @@ public class PlayerController : MonoBehaviour
             dirtParticle.Stop();
             playerAudio.PlayOneShot(jumpSound, 1.0f);
         }
+
+        
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -56,5 +59,7 @@ public class PlayerController : MonoBehaviour
             dirtParticle.Stop();
             playerAudio.PlayOneShot(crashSound, 1.0f);
         }
+
+
     }
 }
