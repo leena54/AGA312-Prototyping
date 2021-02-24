@@ -6,11 +6,11 @@ public class Scoring : JMC
 {
     public int lastRoundScore = 100;
     public int thisRoundScore = 150;
-    public int lives = 5;
+
     void Start()
     {
         
-        if(IsGameOver(lives))
+        if(IsGameOver(_GM1.lives))
         CheckScore();
 
     }

@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     public AudioClip jumpSound;
     public AudioClip crashSound;
     private AudioSource playerAudio;
+    public GameObject coin;
 
 
 
@@ -58,6 +59,11 @@ public class PlayerController : MonoBehaviour
             explosionParticle.Play();
             dirtParticle.Stop();
             playerAudio.PlayOneShot(crashSound, 1.0f);
+        }
+
+        else if(collision.gameObject.CompareTag("Pickup"))
+        {
+            Destroy(coin);
         }
 
 
