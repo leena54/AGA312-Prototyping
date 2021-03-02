@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -17,6 +18,12 @@ public class PlayerController : MonoBehaviour
     private AudioSource playerAudio;
     public GameObject coin;
 
+    public Text scoreText;
+    public Text hiScoreText;
+    public float scoreCount;
+    public float hiScoreCount;
+    public float pointsPerSecond;
+    public bool scoreIncreasing;
 
 
     void Start()
@@ -25,6 +32,7 @@ public class PlayerController : MonoBehaviour
         playerAnim = GetComponent<Animator>();
         Physics.gravity *= gravityModifier;
         playerAudio = GetComponent<AudioSource>();
+       
     }
 
     // Update is called once per frame
@@ -39,7 +47,18 @@ public class PlayerController : MonoBehaviour
             playerAudio.PlayOneShot(jumpSound, 1.0f);
         }
 
-        
+        if (scoreIncreasing)
+        {
+            scoreCount += pointsPerSecond * Time.deltaTime;
+        }
+
+        if (scoreCount > hiScoreCount)
+        {
+            hiScoreCount = scoreCount;
+        }
+
+        scoreText.text = "Score: " + scoreCount.ToString("F2");
+        hiScoreText.text = "High Score: " + hiScoreCount;
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -59,6 +78,7 @@ public class PlayerController : MonoBehaviour
             explosionParticle.Play();
             dirtParticle.Stop();
             playerAudio.PlayOneShot(crashSound, 1.0f);
+            scoreIncreasing = false;
         }
 
         else if(collision.gameObject.CompareTag("Pickup"))
