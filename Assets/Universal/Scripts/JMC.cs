@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class JMC : MonoBehaviour
 {
@@ -8,6 +9,10 @@ public class JMC : MonoBehaviour
     protected static Prototype1.GameManager _GM1 { get { return Prototype1.GameManager.INSTANCE; } }
 
 
+    public void FadeCanvas(CanvasGroup _cvg, float _toValue, float _duration)
+    {
+        _cvg.DOFade(_toValue, _duration);
+    }
 
     /// <summary>
     /// Use this to check if we should call Game Over

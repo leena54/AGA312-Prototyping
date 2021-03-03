@@ -1238,12 +1238,6 @@ MonoBehaviour:
   speed: 5
   increaseRate: 10
   speedText: {fileID: 1063299348}
-  scoreText: {fileID: 1788829534}
-  hiScoreText: {fileID: 1571534253}
-  scoreCount: 5
-  hiScoreCount: 50
-  pointsPerSecond: 5
-  scoreIncreasing: 1
 --- !u!4 &1376866379
 Transform:
   m_ObjectHideFlags: 0
@@ -1453,9 +1447,9 @@ RectTransform:
   m_Father: {fileID: 156202903}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 345, y: -138}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -918, y: -138}
   m_SizeDelta: {x: 600, y: 147.3182}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1788829533
