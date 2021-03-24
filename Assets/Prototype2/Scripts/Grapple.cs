@@ -24,13 +24,14 @@ public class Grapple : MonoBehaviour
         if(Input.GetMouseButtonDown(0))
         {
             StartGrapple();
+            
         }
         else if(Input.GetMouseButtonUp(0))
         {
              StopGrapple();
         }
-
         DrawRope();
+
     }
 
     void StartGrapple()
@@ -53,6 +54,7 @@ public class Grapple : MonoBehaviour
             joint.massScale = 4.5f;
 
             lineRenderer.positionCount = 2;
+            
         }
     }
 
