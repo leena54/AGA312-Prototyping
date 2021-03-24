@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -32,7 +33,7 @@ public class PlayerController : MonoBehaviour
         playerAnim = GetComponent<Animator>();
         Physics.gravity *= gravityModifier;
         playerAudio = GetComponent<AudioSource>();
-       
+        
     }
 
     // Update is called once per frame
@@ -71,6 +72,7 @@ public class PlayerController : MonoBehaviour
 
         else if (collision.gameObject.CompareTag("Obstacle"))
         {
+            
             gameOver = true;
             Debug.Log("Game Over!");
             playerAnim.SetBool("Death_b", true);
@@ -79,13 +81,24 @@ public class PlayerController : MonoBehaviour
             dirtParticle.Stop();
             playerAudio.PlayOneShot(crashSound, 1.0f);
             scoreIncreasing = false;
+
         }
 
-        else if(collision.gameObject.CompareTag("Pickup"))
+        //if (gameOver == true)
+        //{
+            //StartCoroutine(Wait())
+            //SceneManager.LoadScene("Menu");
+        //}
+
+        if(collision.gameObject.CompareTag("Pickup"))
         {
             Destroy(coin);
         }
 
-
     }
+
+    //IEnumerator Wait()
+    //{
+        //yield return new WaitForSeconds(5);
+    //}
 }
