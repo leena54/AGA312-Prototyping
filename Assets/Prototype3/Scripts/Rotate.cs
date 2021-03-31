@@ -9,16 +9,24 @@ public class Rotate : MonoBehaviour
     public GameObject shape;
     private Vector3 startPos;
     private Vector3 endPos;
-    private float distance = 5f;
+    private float distance = 5.5f;
     private float lerpTime = 5;
     private float currentLerpTime;
     private bool keyHit = false;
+    public Camera frontCam;
+    public Camera backCam;
+    public GameObject loseText;
+    
 
 
     void Start()
     {
         startPos = shape.transform.position;
         endPos = shape.transform.position + Vector3.forward * distance;
+        frontCam.enabled = true;
+        backCam.enabled = true;
+
+
     }
 
     void OnMouseDrag()
@@ -36,6 +44,8 @@ public class Rotate : MonoBehaviour
         if(Input.GetKeyDown("space"))
         {
             keyHit = true;
+            frontCam.enabled = false;
+            backCam.enabled = true;
         }
 
         if (keyHit == true)
@@ -52,12 +62,16 @@ public class Rotate : MonoBehaviour
 
     }
 
+
+
+
     void OnTriggerStay(Collider other)
     {
         if (other.gameObject.tag == ("Wall"))
         {
+            loseText.SetActive(true);
             keyHit = false;
-            shape.transform.position = new Vector3(0, 0, -1);
+            //shape.transform.position = new Vector3(0, 0, -1);
         }
     }
 
