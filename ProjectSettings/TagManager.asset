@@ -9,6 +9,7 @@ TagManager:
   - Score
   - Pickup
   - Wall
+  - Goal
   layers:
   - Default
   - TransparentFX

@@ -73,6 +73,11 @@ public class Rotate : MonoBehaviour
             keyHit = false;
             //shape.transform.position = new Vector3(0, 0, -1);
         }
+
+        if (other.gameObject.tag == ("Goal"))
+        {
+
+        }
     }
 
 }
