@@ -10,6 +10,9 @@ TagManager:
   - Pickup
   - Wall
   - Goal
+  - Nine
+  - Five
+  - Forty five
   layers:
   - Default
   - TransparentFX
