@@ -8,12 +8,14 @@ public class Pickup : MonoBehaviour
     public Transform theDest;
     private float distance;
     public Transform player;
+    public int myNumber;
     
 
 
     void Start()
     {
-
+        player = GameObject.FindGameObjectWithTag("Player").transform;
+        theDest = player.transform.GetChild(0);
     }
 
 
