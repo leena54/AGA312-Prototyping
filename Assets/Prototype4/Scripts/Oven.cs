@@ -31,9 +31,8 @@ public class Oven : MonoBehaviour
             int ans = ingredientNumbers[0] * ingredientNumbers[1];
             food.GetComponentInChildren<TextMeshPro>().text = ans.ToString();
 
-
-
         }
+
 
 
         if(ingredientNumbers.Count >1)
