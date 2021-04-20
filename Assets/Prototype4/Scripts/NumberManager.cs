@@ -15,6 +15,7 @@ public class NumberManager : MonoBehaviour
     public GameObject pickupPrefab;
     public Difficulty currentDifficulty;
 
+
     void Start()
     {
         GenerateNumbers();
@@ -28,7 +29,7 @@ public class NumberManager : MonoBehaviour
 
     public void GenerateNumbers()
     {
-        int spawnCount = tables.Count * 2;
+        int spawnCount = tables.Count * 4;
         for (int i = 0; i < spawnCount; i++)
         {
             GameObject go = Instantiate(pickupPrefab, new Vector3(Random.Range(-5, 5), 0.5f, Random.Range(-5, 5)), transform.rotation);
@@ -45,9 +46,12 @@ public class NumberManager : MonoBehaviour
     {
         for(int i = 0; i < tables.Count; i++)
         {
-            int answer = pickups[0].GetComponent<Pickup>().myNumber * pickups[1].GetComponent<Pickup>().myNumber ;
+            
+            int answer = pickups[Random.Range(0,7)].GetComponent<Pickup>().myNumber * pickups[Random.Range(0,7)].GetComponent<Pickup>().myNumber;
             tables[i].myNumber = answer;
             tables[i].GetComponentInChildren<TextMeshPro>().text = answer.ToString();
+            
+           
         }
 
     }
@@ -66,4 +70,6 @@ public class NumberManager : MonoBehaviour
                 return (Random.Range(1, 10));
         }
     }
+
+
 }

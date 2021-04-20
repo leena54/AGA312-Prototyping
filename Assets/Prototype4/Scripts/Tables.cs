@@ -8,7 +8,7 @@ public class Tables : MonoBehaviour
 {
     public GameObject food;
     public GameObject text;
-    public GameObject nextText;
+    //public GameObject nextText;
 
     public Slider hungerBar;
     public float hunger;
@@ -28,15 +28,25 @@ public class Tables : MonoBehaviour
     {
         hunger -= Time.deltaTime;
         hungerBar.value = hunger;
+
+        if(hunger <= 0 )
+        {
+            text.SetActive(true);
+            
+        }
+    
     }
 
+    
     public void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.tag == ("Forty five"))
-        {
-            Destroy(food);
-            Destroy(text);
-            nextText.SetActive(true);
-        }
+
+        hunger = 10f;
+       // if(other.gameObject.tag == ("Forty five"))
+       // {
+         //   Destroy(food);
+           // Destroy(text);
+            //nextText.SetActive(true);
+        //}
     }
 }
