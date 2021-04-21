@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Prototype2/Prototype2.unity
     guid: 42443b8a75739904bbeafcf1c244acac
+  - enabled: 1
+    path: Assets/Prototype4/Scenes/TitleMATH.unity
+    guid: d4284f0a6995185439b68b0694700c22
   m_configObjects: {}

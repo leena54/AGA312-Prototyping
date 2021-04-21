@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class Tables : MonoBehaviour
+public class Tables : JMC
 {
     public GameObject food;
     public GameObject text;
@@ -15,6 +15,7 @@ public class Tables : MonoBehaviour
     public float maxHunger;
 
     public int myNumber;
+    public int cash;
 
     void Start()
     {
@@ -40,13 +41,25 @@ public class Tables : MonoBehaviour
     
     public void OnTriggerEnter(Collider other)
     {
+        if (other.gameObject.tag == ("Food"))
+        {
+            if (other.GetComponent<Pickup>().myNumber == myNumber)
+            {
+                Destroy(other.gameObject);
+                _NM.ResetTable(this);
 
-        hunger = 10f;
+
+            }
+
+        }
+
+
+
        // if(other.gameObject.tag == ("Forty five"))
        // {
-         //   Destroy(food);
-           // Destroy(text);
-            //nextText.SetActive(true);
-        //}
+       //   Destroy(food);
+       // Destroy(text);
+       //nextText.SetActive(true);
+       //}
     }
 }

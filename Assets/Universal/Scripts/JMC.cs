@@ -7,6 +7,7 @@ public class JMC : MonoBehaviour
 {
     //Reference to all our singletons that can be used in the project
     protected static Prototype1.GameManager _GM1 { get { return Prototype1.GameManager.INSTANCE; } }
+    protected static NumberManager _NM { get { return NumberManager.INSTANCE; } }
 
 
     public void FadeCanvas(CanvasGroup _cvg, float _toValue, float _duration)

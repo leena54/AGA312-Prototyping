@@ -3,23 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class Oven : MonoBehaviour
+public class Oven : JMC
 {
     
     public List<int> ingredientNumbers;
     public GameObject food;
     
-    void Start()
-    {
-        
-    }
-
-
-    void Update()
-    {
-        
-    }
-
     
     public void OnTriggerEnter(Collider other)
     {
@@ -27,18 +16,20 @@ public class Oven : MonoBehaviour
         {
 
             ingredientNumbers.Add(other.GetComponent<Pickup>().myNumber);
-
-            int ans = ingredientNumbers[0] * ingredientNumbers[1];
-            food.GetComponentInChildren<TextMeshPro>().text = ans.ToString();
+            _NM.pickups.Remove(other.gameObject);
+            Destroy(other.gameObject);
+            
 
         }
 
-
-
         if(ingredientNumbers.Count >1)
         {
-            Instantiate(food, new Vector3(-2, 2, 16), Quaternion.identity);
-
+            int ans = ingredientNumbers[0] * ingredientNumbers[1];
+            
+            GameObject go = Instantiate(food, new Vector3(-2, 2, 16), Quaternion.identity);
+            go.GetComponentInChildren<TextMeshPro>().text = ans.ToString();
+            go.GetComponent<Pickup>().myNumber = ans;
+            ingredientNumbers.Clear();
         }
 
 
