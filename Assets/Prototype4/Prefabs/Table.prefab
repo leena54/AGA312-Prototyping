@@ -751,7 +751,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -959,9 +959,11 @@ MonoBehaviour:
   text: {fileID: 0}
   hungerBar: {fileID: 7717847178523569600}
   hunger: 0
-  maxHunger: 10
+  maxHunger: 20
   myNumber: 0
   cash: 0
+  score: 0
+  scoreText: {fileID: 0}
 --- !u!1 &7717847179190894738
 GameObject:
   m_ObjectHideFlags: 0

@@ -17,11 +17,16 @@ public class Tables : JMC
     public int myNumber;
     public int cash;
 
+    public int score;
+    public Text scoreText;
+
     void Start()
     {
         hunger = maxHunger;
         hungerBar.maxValue = maxHunger;
         hungerBar.value = hunger;
+
+        scoreText.text = "CASH: $" + score;
     }
 
 
@@ -48,8 +53,11 @@ public class Tables : JMC
                 Destroy(other.gameObject);
                 _NM.ResetTable(this);
 
+                IncreaseScore();
 
             }
+
+
 
         }
 
@@ -61,5 +69,11 @@ public class Tables : JMC
        // Destroy(text);
        //nextText.SetActive(true);
        //}
+    }
+
+    private void IncreaseScore()
+    {
+        score+= 10;
+        scoreText.text = "Cash: $ " + score;
     }
 }

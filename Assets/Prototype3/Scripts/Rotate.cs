@@ -15,7 +15,7 @@ public class Rotate : MonoBehaviour
     private bool keyHit = false;
     public Camera frontCam;
     public Camera backCam;
-    public GameObject loseText;
+    public GameObject loseText, winText;
     
 
 
@@ -76,6 +76,7 @@ public class Rotate : MonoBehaviour
 
         if (other.gameObject.tag == ("Goal"))
         {
+            winText.SetActive(true);
 
         }
     }

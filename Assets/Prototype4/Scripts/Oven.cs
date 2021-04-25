@@ -26,7 +26,7 @@ public class Oven : JMC
         {
             int ans = ingredientNumbers[0] * ingredientNumbers[1];
             
-            GameObject go = Instantiate(food, new Vector3(-2, 2, 16), Quaternion.identity);
+            GameObject go = Instantiate(food, new Vector3(-17, 2, 9), Quaternion.identity);
             go.GetComponentInChildren<TextMeshPro>().text = ans.ToString();
             go.GetComponent<Pickup>().myNumber = ans;
             ingredientNumbers.Clear();
